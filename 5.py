@@ -16,7 +16,7 @@ for m in rmaps:
 def smap(m, v):
     for rn in m:
         drs, srs, rl = rn
-        if v >= srs and v <= srs + rl:
+        if v >= srs and v < srs + rl:
             return drs + (v - srs)
     return v
 
