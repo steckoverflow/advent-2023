@@ -1,6 +1,6 @@
 import math
 
-d = [r for r in open("i4.txt").read().split("\n") if r]
+d = [r for r in open("ie.txt").read().split("\n") if r]
 games = []
 pts = []
 for g in d:
