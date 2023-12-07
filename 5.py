@@ -32,13 +32,14 @@ lw = None
 lst = dt.now()
 
 for si, j in ns:
-    for i in range(j):
+    for i in range(j + 1):
         v = si + i
-        if i % 10_000_000 == 0:
-            print(i, dt.now() - lst)
+        print(i)
+            # print(i, dt.now() - lst)
         for mp in cmaps:
             v = smap(mp, v)
         if not lw or v < lw:
+            print("found lw: ", i)
             lw = v
 
 print("Part 2: ", lw)
