@@ -33,4 +33,4 @@ print("Part 1: ", sum(list(map(lambda x: x.s, s))))
 
 s = [Seq(v, reverse=True) for v in d]
 
-print("Part 1: ", sum(list(map(lambda x: x.s, s))))
+print("Part 2: ", sum(list(map(lambda x: x.s, s))))
