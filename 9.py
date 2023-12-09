@@ -6,16 +6,14 @@ class Seq:
         self.calc_diff()
         self.s = self.solve(reverse)
     
-    def solve(self, reverse=False):
+    def solve(self, reverse):
         for i in range(-1, -len(self.seq) -1, -1):
             if i == -1:
                 self.seq[i].insert(0, 0)
                 continue
             ip = len(self.seq[i]) if not reverse else 0
             if reverse:
-                v1 = self.seq[i+1][0]
-                v2 = self.seq[i][0]
-                v = v2 - v1
+                v = self.seq[i][0] - self.seq[i+1][0]
             else:
                 v = self.seq[i+1][-1] + self.seq[i][-1]
             self.seq[i].insert(ip, v)
@@ -24,14 +22,7 @@ class Seq:
 
     def calc_diff(self):
         while not all([i == 0 for i in self.seq[-1]]):
-            diff = []
-            for i in range(len(self.seq[-1]) - 1):
-                v1 = self.seq[-1][i+1]
-                v2 = self.seq[-1][i]
-                dv = v1 - v2
-                diff.append(dv)
-            self.seq.append(diff)
-
+            self.seq.append([self.seq[-1][i+1] - self.seq[-1][i] for i in range(len(self.seq[-1]) - 1)])
 
     def __repr__(self):
         return str(self.seq)
